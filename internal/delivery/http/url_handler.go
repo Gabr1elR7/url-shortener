@@ -1,6 +1,7 @@
 package http
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/Gabr1elR7/url-shortener/internal/usecase"
@@ -31,7 +32,7 @@ func (h *URLHandler) Shorten(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, echo.Map{
-		"shortUrl": url.Code,
+		"shortUrl": fmt.Sprintf("http://localhost:8080/%s", url.Code),
 	})
 }
 

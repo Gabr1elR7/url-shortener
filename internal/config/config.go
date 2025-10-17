@@ -9,7 +9,8 @@ import (
 
 type Config struct {
 	DatabaseURL 	string
-	RedisURL 		string
+	RedisADDR 		string
+	RedisPass 		string
 	Port 			string
 	BaseURL 		string
 }
@@ -21,7 +22,8 @@ func Load() *Config {
 
 	return &Config {
 		DatabaseURL: 	os.Getenv("DATABASE_URL"),
-		RedisURL: 		os.Getenv("REDIS_URL"),
+		RedisADDR: 		os.Getenv("REDIS_ADDR"),
+		RedisPass: 		os.Getenv("REDIS_PASS"),
 		Port: 			os.Getenv("PORT"),
 		BaseURL: 		os.Getenv("BASE_URL"),
 	}
