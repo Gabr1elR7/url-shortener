@@ -33,7 +33,7 @@ func (r *urlRepository) Create(u *model.URL) error {
 }
 
 func (r *urlRepository) GetByCode(code string) (*model.URL, error) {
-	cacheKey := fmt.Sprintf("urlCode:$s", code)
+	cacheKey := fmt.Sprintf("urlCode:%s", code)
 
 	// Search in redis
 	val, err := r.cache.Get(redisCache.Ctx, cacheKey).Result()
